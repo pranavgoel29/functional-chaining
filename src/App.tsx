@@ -1,12 +1,19 @@
-function App() {
+import React, { useState } from "react";
+import ValueComponent from "./components/ValueComp";
+
+const App: React.FC = () => {
+  const [inputValue, setInputValue] = useState<number>(2);
+  const [outputValue] = useState<number>(5); // Static output value
+
+  const handleInputChange = (value: number) => {
+    setInputValue(value);
+  };
   return (
-    <div className="mt-10 min-h-screen">
-      <h1 className="text-center text-4xl">Welcome to My App</h1>
-      <p className="text-center">
-        This background applies across the entire app!
-      </p>
+    <div className="min-h-screen flex flex-col justify-center items-center gap-6s">
+      <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
+      <ValueComponent isInput={false} value={outputValue} />
     </div>
   );
-}
+};
 
 export default App;
