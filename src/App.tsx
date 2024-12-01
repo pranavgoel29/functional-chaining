@@ -9,7 +9,7 @@ const App: React.FC = () => {
     setInputValue(value);
   };
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center gap-6s">
+    <div className="min-h-screen flex flex-col justify-center items-center gap-6">
       <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
       <ValueComponent isInput={false} value={outputValue} />
     </div>
