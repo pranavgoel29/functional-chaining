@@ -6,11 +6,10 @@ import { validateEquation } from "../utils/equationUtil";
 type FunctionCardProps = {
   func: MathFunction;
   onEquationChange: (id: number, equation: string) => void;
-  result?: { input: number; output: number };
 };
 
 const FunctionCard = (props: FunctionCardProps) => {
-  const { func, onEquationChange, result } = props;
+  const { func, onEquationChange } = props;
 
   const [error, setError] = useState<string>("");
 
@@ -76,8 +75,8 @@ const FunctionCard = (props: FunctionCardProps) => {
 
       <div className="mt-4 pt-4 border-t">
         <div className="flex justify-between text-sm">
-          <span id={`end-${func.id}`}>Input {result?.input}</span>
-          <span id={`start-${func.id}`}>Output {result?.output}</span>
+          <span id={`end-${func.id}`}>Input</span>
+          <span id={`start-${func.id}`}>Output</span>
         </div>
       </div>
     </div>

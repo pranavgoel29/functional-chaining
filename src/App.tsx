@@ -57,7 +57,6 @@ const App: React.FC = () => {
           <FunctionCard
             key={func.id}
             func={func}
-            result={results.find((r) => r.functionId === func.id)}
             onEquationChange={handleEquationChange}
           />
         ))}
