@@ -14,6 +14,8 @@ const App: React.FC = () => {
     setInputValue(value);
   };
 
+
+  // This is the connectors that connects the nodes in the function chain.
   const connector = useMemo(() => {
     return (
       <>
