@@ -62,7 +62,7 @@ Start the development server by running:
 npm start
 ```
 
-This will open the application in your browser, typically at [http://localhost:3000](http://localhost:3000).
+This will open the application in your browser.
 
 ### 4. Build the Project (Optional)
 
