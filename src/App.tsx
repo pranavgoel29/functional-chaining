@@ -14,10 +14,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center gap-6">
+    <div className="min-h-screen flex justify-center items-center gap-8">
       <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-items-center">
         {functions.map((func) => (
           <FunctionCard
             key={func.id}

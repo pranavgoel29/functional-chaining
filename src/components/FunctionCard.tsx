@@ -26,7 +26,7 @@ const FunctionCard = (props: FunctionCardProps) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg border border-gray-200 w-72 relative z-10">
+    <div className="bg-white p-6 rounded-lg border border-gray-200 w-62 relative z-10">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-gray-400">
           Function: {func.id}

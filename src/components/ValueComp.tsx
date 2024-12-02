@@ -15,7 +15,7 @@ export const ValueComponent: React.FC<ValueComponentProps> = ({
   const accentBorder = isInput ? "border-orange-400" : "border-green-500";
 
   return (
-    <div className="w-36 max-w-36 relative">
+    <div className="w-36 max-w-36 relative bottom-20">
       {/* Dynamic Label */}
       <label
         htmlFor={isInput ? "initial-value" : "final-value"}
