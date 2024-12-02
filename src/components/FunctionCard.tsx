@@ -76,8 +76,8 @@ const FunctionCard = (props: FunctionCardProps) => {
 
       <div className="mt-4 pt-4 border-t">
         <div className="flex justify-between text-sm">
-          <span>Input {result?.input}</span>
-          <span>Output {result?.output}</span>
+          <span id={`end-${func.id}`}>Input {result?.input}</span>
+          <span id={`start-${func.id}`}>Output {result?.output}</span>
         </div>
       </div>
     </div>

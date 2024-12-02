@@ -4,13 +4,7 @@ import { evaluateEquation } from "../utils/equationUtil";
 
 // Default configuration for the function chain
 export const defaultChainConfig = {
-  defaultOrder: {
-    1: 2,
-    2: 4,
-    3: null,
-    4: 5,
-    5: 3,
-  },
+  defaultOrder: [1, 2, 4, 5, 3],
   availableFunctions: [1, 2, 3, 4, 5],
 } as const;
 
@@ -18,27 +12,27 @@ const functionsData = [
   {
     id: 1,
     equation: "x*2",
-    nextFunctionId: defaultChainConfig.defaultOrder[1],
+    nextFunctionId: defaultChainConfig.defaultOrder[0],
   },
   {
     id: 2,
     equation: "2x+4",
-    nextFunctionId: defaultChainConfig.defaultOrder[2],
+    nextFunctionId: defaultChainConfig.defaultOrder[1],
   },
   {
     id: 3,
     equation: "x^2+20",
-    nextFunctionId: defaultChainConfig.defaultOrder[3],
+    nextFunctionId: defaultChainConfig.defaultOrder[2],
   },
   {
     id: 4,
     equation: "x-2",
-    nextFunctionId: defaultChainConfig.defaultOrder[4],
+    nextFunctionId: defaultChainConfig.defaultOrder[3],
   },
   {
     id: 5,
     equation: "x/2",
-    nextFunctionId: defaultChainConfig.defaultOrder[5],
+    nextFunctionId: defaultChainConfig.defaultOrder[4],
   },
 ];
 
