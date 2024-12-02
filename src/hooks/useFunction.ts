@@ -48,8 +48,13 @@ export const useFunctionChain = (initialX: number) => {
 
   const [results, setResults] = useState<FunctionResult[]>([]);
 
+  /**
+   * Updates the equation for a function in corresponding to its ID
+   */
   const handleEquationChange = (id: number, equation: string) => {
-    setFunctions(functions.map((f) => (f.id === id ? { ...f, equation } : f)));
+    setFunctions(
+      functions.map((func) => (func.id === id ? { ...func, equation } : func))
+    );
   };
 
   /**
@@ -73,7 +78,7 @@ export const useFunctionChain = (initialX: number) => {
     let currentId = 1; // Start with function 1
 
     while (currentId !== null) {
-      const currentFunc = functions.find((f) => f.id === currentId);
+      const currentFunc = functions.find((func) => func.id === currentId);
       if (!currentFunc) break;
 
       try {
