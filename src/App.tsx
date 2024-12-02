@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import ValueComponent from "./components/ValueComp";
 import FunctionCard from "./components/FunctionCard";
 import { defaultChainConfig, useFunctionChain } from "./hooks/useFunction";
@@ -13,6 +13,40 @@ const App: React.FC = () => {
   const handleInputChange = (value: number) => {
     setInputValue(value);
   };
+
+  const connector = useMemo(() => {
+    return (
+      <>
+        {functions.map((func) =>
+          func.nextFunctionId ? (
+            <FunctionConnector
+              key={`connector-${func.id}-${func.nextFunctionId}`}
+              startNodeId={`start-${func.id}`}
+              endNodeId={`end-${func.nextFunctionId}`}
+            />
+          ) : null
+        )}
+        <FunctionConnector
+          key={`connector-input-value-${functions[0].id}`}
+          startNodeId="initial-value"
+          endNodeId={`end-${functions[0].id}`}
+        />
+        <FunctionConnector
+          key={`connector-final-value-${
+            Object.entries(defaultChainConfig.defaultOrder).find(
+              ([_, value]) => value === null
+            )?.[0]
+          }`}
+          startNodeId={`start-${
+            Object.entries(defaultChainConfig.defaultOrder).find(
+              ([_, value]) => value === null
+            )?.[0]
+          }`}
+          endNodeId="final-value"
+        />
+      </>
+    );
+  }, [functions]);
 
   return (
     <div className="min-h-screen flex justify-center items-center gap-8">
@@ -29,35 +63,8 @@ const App: React.FC = () => {
         ))}
       </div>
 
-      {functions.map((func) =>
-        func.nextFunctionId ? (
-          <FunctionConnector
-            key={`connector-${func.id}-${func.nextFunctionId}`}
-            startNodeId={`start-${func.id}`}
-            endNodeId={`end-${func.nextFunctionId}`}
-          />
-        ) : null
-      )}
-
-      <FunctionConnector
-        key={`connector-input-value-${functions[0].id}`}
-        startNodeId="initial-value"
-        endNodeId={`end-${functions[0].id}`}
-      />
-
-      <FunctionConnector
-        key={`connector-final-value-${
-          Object.entries(defaultChainConfig.defaultOrder).find(
-            ([_, value]) => value === null
-          )?.[0]
-        }`}
-        startNodeId={`start-${
-          Object.entries(defaultChainConfig.defaultOrder).find(
-            ([_, value]) => value === null
-          )?.[0]
-        }`}
-        endNodeId="final-value"
-      />
+      {/* Node connectors */}
+      {functions.length > 0 && connector}
 
       <ValueComponent
         isInput={false}
