@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/pranavgoel29/functional-chaining/main/public/chain.png" alt="logo" width="20%" />
+
 # Function Chain Calculator
 
 <img src="./public/preview.png">
