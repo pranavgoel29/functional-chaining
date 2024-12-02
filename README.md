@@ -37,26 +37,56 @@ src/
    └── ... (other source files)
 ```
 
+## How It Works
+
+1. **Function Cards**:
+
+   - Each function card displays an equation (e.g., `x^2 + 2`) and allows the user to modify it.
+   - The user provides an initial value for `x` and can change it at any time.
+   - When an equation is updated or a new input is provided, the output is recalculated using basic arithmetic operations. [+, -, *, /, ^]
+
+2. **Function Chain**:
+
+   - The output of one function is passed as the input to the next function in the sequence.
+   - The chain can have multiple functions, and new functions can be added easily by modifying the `functionsData` array in the `useFunction.ts` hook.
+
+3. **Mathematical Validation**:
+
+   - The application only allows basic arithmetic operations (addition, subtraction, multiplication, division, and exponents).
+   - The input is validated to ensure only these operations are used in the equations.
+   - UI reflects the proper `validation message` when the equation is not valid for an input.
+
+4. **Extensibility**:
+   - New functions can be added simply by appending objects to the `functions` array in the parent component.
+   - Each function object contains an `id`, an equation, the current input value, and the ID of the next function to which the output is passed.
+
 ## Setup
 
 To get started with this project locally, follow the instructions below:
 
-### 1. Clone the Repository
+1. Clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/pranavgoel29/function-chain-calculator.git
+```
+
+2. Navigate to the project's directory:
+
+```bash
 cd function-chain-calculator
 ```
 
-### 2. Install Dependencies
-
-Make sure you have **Node.js** installed. Then, run the following command to install all required dependencies:
+2.  Install Dependencies
 
 ```bash
 pnpm install
 ```
 
-### 3. Run the Development Server
+<br>
+
+### Running the App
+
+---
 
 Start the development server by running:
 
@@ -66,7 +96,7 @@ pnpm run dev
 
 This will open the application in your browser.
 
-### 4. Build the Project (Optional)
+4.  Build the Project (Optional)
 
 To build the project for production, run:
 
@@ -76,32 +106,11 @@ pnpm run build
 
 This will create a `build` folder containing the optimized production build.
 
-## How It Works
-
-1. **Function Cards**:
-
-   - Each function card displays an equation (e.g., `x^2 + 2`) and allows the user to modify it.
-   - The user provides an initial value for `x` and can change it at any time.
-   - When an equation is updated or a new input is provided, the output is recalculated using basic arithmetic operations.
-
-2. **Function Chain**:
-
-   - The output of one function is passed as the input to the next function in the sequence.
-   - The chain can have multiple functions, and new functions can be added easily by modifying the `functions` array in the parent component (`App.tsx`).
-
-3. **Mathematical Validation**:
-
-   - The application only allows basic arithmetic operations (addition, subtraction, multiplication, division, and exponents).
-   - The input is validated to ensure only these operations are used in the equations.
-
-4. **Extensibility**:
-   - New functions can be added simply by appending objects to the `functions` array in the parent component.
-   - Each function object contains an `id`, an equation, the current input value, and the ID of the next function to which the output is passed.
+<br>
 
 ## Future Enhancements
 
 - **Function Addiotion**: We can add an option to add or remove more function and chain them.
-
 
 ## 🐛Bug Reporting
 
