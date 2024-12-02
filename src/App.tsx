@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <FunctionCard
             key={func.id}
             func={func}
-            result={results[func.id - 1]}
+            result={results.find((r) => r.functionId === func.id)}
             onEquationChange={handleEquationChange}
           />
         ))}
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
       <ValueComponent
         isInput={false}
-        value={results?.[results.length - 1]?.output ??""}
+        value={results?.[results.length - 1]?.output ?? ""}
       />
     </div>
   );
