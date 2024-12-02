@@ -2,6 +2,7 @@ import { useState } from "react";
 import { defaultChainConfig } from "../hooks/useFunction";
 import { MathFunction } from "../types";
 import { validateEquation } from "../utils/equationUtil";
+import FlowPointIndicator from "./FlowPointIndicator";
 
 type FunctionCardProps = {
   func: MathFunction;
@@ -75,8 +76,12 @@ const FunctionCard = (props: FunctionCardProps) => {
 
       <div className="mt-4 pt-4 border-t">
         <div className="flex justify-between text-sm">
-          <span id={`end-${func.id}`}>Input</span>
-          <span id={`start-${func.id}`}>Output</span>
+          <FlowPointIndicator label="Input" id={`end-${func.id}`} />
+          <FlowPointIndicator
+            label="Output"
+            id={`start-${func.id}`}
+            labelPosition="left"
+          />
         </div>
       </div>
     </div>
