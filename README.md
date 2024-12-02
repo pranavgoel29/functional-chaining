@@ -17,12 +17,18 @@ This web application allows users to execute a chain of mathematical functions. 
 ## Project Structure
 
 ```
-/src
-  ├── /components
-  │   ├── FunctionCard.tsx  # Handles individual function cards and computation
-  │   └── App.tsx           # Main component managing function chain logic
-  └── /utils
-      └── equationUtil.ts       # Utility functions for validating and evaluating equations
+src/
+   ├── components/
+   │   ├── FunctionConnector.tsx
+   │   ├── ValueComp.tsx
+   │   └── FunctionCard.tsx
+   ├── utils/
+   │   ├── equationUtil.ts
+   ├── hooks/
+   │   ├── useFunction.ts
+   ├── App.tsx
+   ├── index.tsx
+   └── ... (other source files)
 ```
 
 ## Setup
