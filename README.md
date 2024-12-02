@@ -91,7 +91,6 @@ This will create a `build` folder containing the optimized production build.
 
    - The application only allows basic arithmetic operations (addition, subtraction, multiplication, division, and exponents).
    - The input is validated to ensure only these operations are used in the equations.
-   - The application evaluates mathematical expressions using JavaScript's built-in `eval()` function (with validation for safe usage).
 
 4. **Extensibility**:
    - New functions can be added simply by appending objects to the `functions` array in the parent component.
