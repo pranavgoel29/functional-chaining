@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ValueComponent from "./components/ValueComp";
 import FunctionCard from "./components/FunctionCard";
-import { useFunctionChain } from "./hooks/useFunction";
+import { defaultChainConfig, useFunctionChain } from "./hooks/useFunction";
+import { FunctionConnector } from "./components/FunctionConnector";
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState<number>(2);
@@ -27,6 +28,36 @@ const App: React.FC = () => {
           />
         ))}
       </div>
+
+      {functions.map((func) =>
+        func.nextFunctionId ? (
+          <FunctionConnector
+            key={`connector-${func.id}-${func.nextFunctionId}`}
+            startNodeId={`start-${func.id}`}
+            endNodeId={`end-${func.nextFunctionId}`}
+          />
+        ) : null
+      )}
+
+      <FunctionConnector
+        key={`connector-input-value-${functions[0].id}`}
+        startNodeId="initial-value"
+        endNodeId={`end-${functions[0].id}`}
+      />
+
+      <FunctionConnector
+        key={`connector-final-value-${
+          Object.entries(defaultChainConfig.defaultOrder).find(
+            ([_, value]) => value === null
+          )?.[0]
+        }`}
+        startNodeId={`start-${
+          Object.entries(defaultChainConfig.defaultOrder).find(
+            ([_, value]) => value === null
+          )?.[0]
+        }`}
+        endNodeId="final-value"
+      />
 
       <ValueComponent
         isInput={false}

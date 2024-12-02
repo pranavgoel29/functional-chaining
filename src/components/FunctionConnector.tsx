@@ -14,43 +14,47 @@ export const FunctionConnector: React.FC<ConnectorProps> = ({
   startNodeId,
   endNodeId,
 }) => {
-  const [start, setStart] = useState<Position>({ x: 0, y: 0 });
-  const [end, setEnd] = useState<Position>({ x: 0, y: 0 });
+  const [start, setStart] = useState<Position | null>(null);
+  const [end, setEnd] = useState<Position | null>(null);
+
+  // Update positions on mount and resize
+  const updatePositions = () => {
+    const startElement = document.getElementById(startNodeId);
+    const endElement = document.getElementById(endNodeId);
+
+    if (startElement && endElement) {
+      const startRect = startElement.getBoundingClientRect();
+      const endRect = endElement.getBoundingClientRect();
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+
+      setStart({
+        x: startRect.right + scrollX,
+        y: startRect.top + startRect.height / 2 + scrollY,
+      });
+      setEnd({
+        x: endRect.left + scrollX,
+        y: endRect.top + endRect.height / 2 + scrollY,
+      });
+    }
+  };
 
   useEffect(() => {
-    const updatePositions = () => {
-      // Get the start and end elements by their IDs
-      const startElement = document.getElementById(startNodeId);
-      const endElement = document.getElementById(endNodeId);
-
-      if (startElement && endElement) {
-        // Get the bounding rectangles of the elements, which include the position and size
-        const startRect = startElement.getBoundingClientRect();
-        const endRect = endElement.getBoundingClientRect();
-
-        // Get the scroll position of the window, to adjust the position of the elements
-        const scrollX = window.scrollX;
-        const scrollY = window.scrollY;
-
-        setStart({
-          x: startRect.right + scrollX,
-          y: startRect.top + startRect.height / 2 + scrollY,
-        });
-        setEnd({
-          x: endRect.left + scrollX,
-          y: endRect.top + endRect.height / 2 + scrollY,
-        });
-      }
-    };
-
     updatePositions();
 
-    // Update positions on resize
+    // Add event listeners for resize and scroll
     window.addEventListener("resize", updatePositions);
+    window.addEventListener("scroll", updatePositions);
 
-    // Remove event listener for window resize, to avoid memory leaks.
-    return () => window.removeEventListener("resize", updatePositions);
+    return () => {
+      window.removeEventListener("resize", updatePositions);
+      window.removeEventListener("scroll", updatePositions);
+    };
   }, [startNodeId, endNodeId]);
+
+  if (!start || !end) {
+    return null; // Don't render the connector if positions are not ready
+  }
 
   // Bezier curve path, M is the starting point, C is the curve
   const path = `M ${start.x} ${start.y} 
