@@ -14,7 +14,6 @@ const App: React.FC = () => {
     setInputValue(value);
   };
 
-
   // This is the connectors that connects the nodes in the function chain.
   const connector = useMemo(() => {
     return (
@@ -51,10 +50,10 @@ const App: React.FC = () => {
   }, [functions]);
 
   return (
-    <div className="min-h-screen flex justify-center items-center gap-8">
+    <div className="min-h-screen flex justify-center items-center p-6 gap-8">
       <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-items-center">
+      <div className="flex flex-wrap gap-16 justify-center w-8/12">
         {functions.map((func) => (
           <FunctionCard
             key={func.id}
