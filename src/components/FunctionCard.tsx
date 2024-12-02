@@ -59,7 +59,7 @@ const FunctionCard = (props: FunctionCardProps) => {
           disabled={true}
           className={`w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed text-gray-500`}
         >
-          <option value="">None</option>
+          <option value="">-</option>
           {
             // Render all available functions except the current function
             defaultChainConfig.availableFunctions
