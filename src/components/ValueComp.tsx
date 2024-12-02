@@ -34,6 +34,7 @@ export const ValueComponent: React.FC<ValueComponentProps> = ({
             id="initial-value"
             aria-label="Initial value of x"
             type="number"
+            min={0}
             value={value}
             onChange={(e) => onChange?.(Number(e.target.value))}
             className="p-2 w-full border-none focus:outline-none rounded-xl font-bold"
