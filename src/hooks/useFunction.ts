@@ -37,7 +37,7 @@ const functionsData = [
   },
   {
     id: 5,
-    equation: "x+5",
+    equation: "x/2",
     nextFunctionId: defaultChainConfig.defaultOrder[5],
   },
 ];
