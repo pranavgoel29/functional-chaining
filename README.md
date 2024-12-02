@@ -1,5 +1,7 @@
 # Function Chain Calculator
 
+<img src="./public/preview.png">
+
 This web application allows users to execute a chain of mathematical functions. Each function computes an output based on a user-defined equation, and the output is passed as the input to the next function. The application is designed to be easily extendable, allowing the addition of new functions and equations.
 
 ## Features
