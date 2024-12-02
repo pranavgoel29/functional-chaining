@@ -5,8 +5,8 @@ export interface MathFunction {
   nextFunctionId: number | null;
 }
 
-// Result of a function computation
-export interface ComputationResult {
+// Result of a function calculation
+export interface FunctionResult {
   functionId: number;
   input: number;
   output: number;
