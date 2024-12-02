@@ -50,7 +50,7 @@ const App: React.FC = () => {
   }, [functions]);
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-6 gap-8">
+    <div className="min-h-screen flex justify-center items-center p-6 g-2">
       <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
 
       <div className="flex flex-wrap gap-16 justify-center w-8/12">
