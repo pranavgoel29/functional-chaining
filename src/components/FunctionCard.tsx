@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { defaultChainConfig } from "../hooks/useFunction";
 import { MathFunction } from "../types";
+import { validateEquation } from "../utils/equationUtil";
 
 type FunctionCardProps = {
   func: MathFunction;
@@ -9,6 +11,20 @@ type FunctionCardProps = {
 
 const FunctionCard = (props: FunctionCardProps) => {
   const { func, onEquationChange, result } = props;
+
+  const [error, setError] = useState<string>("");
+
+  // Validate if the equation is valid and set the error state accordingly
+  const handleEquationChange = (newEquation: string) => {
+    const validation = validateEquation(newEquation);
+    if (!validation.isValid) {
+      setError(validation.error ?? "Invalid equation");
+    } else {
+      setError("");
+    }
+    onEquationChange(func.id, newEquation);
+  };
+
   return (
     <div className="bg-white p-6 rounded-lg border border-gray-200 w-72 relative z-10">
       <div className="flex justify-between items-center mb-4">
@@ -24,11 +40,11 @@ const FunctionCard = (props: FunctionCardProps) => {
         <input
           type="text"
           value={func.equation}
-          onChange={(e) => onEquationChange(func.id, e.target.value)}
+          onChange={(e) => handleEquationChange(e.target.value)}
           className={`w-full p-2 border rounded-md `}
           placeholder="e.g., 2x + 1"
         />
-        {/* {error && <p className="mt-1 text-sm text-red-500">{error}</p>} */}
+        {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
       </div>
 
       <div className="mb-4">
