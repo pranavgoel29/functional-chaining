@@ -13,12 +13,14 @@ This web application allows users to execute a chain of mathematical functions. 
 - **Dynamic Updates**: When users modify an equation or the input value, the output is recalculated, and the changes are sent though every function.
 - **Equation Validation**: Only basic arithmetic operations (addition, subtraction, multiplication, division, and exponents) are allowed in the equations.
 
-## Technologies Used
+## 📦 About Project
 
-- **React**: The front-end library for building user interfaces.
-- **TypeScript**: A superset of JavaScript that adds type safety.
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
 
-## Project Structure
+### Project Structure
 
 ```
 src/
@@ -51,7 +53,7 @@ cd function-chain-calculator
 Make sure you have **Node.js** installed. Then, run the following command to install all required dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 3. Run the Development Server
@@ -59,7 +61,7 @@ npm install
 Start the development server by running:
 
 ```bash
-npm start
+pnpm run dev
 ```
 
 This will open the application in your browser.
@@ -69,7 +71,7 @@ This will open the application in your browser.
 To build the project for production, run:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 This will create a `build` folder containing the optimized production build.
@@ -98,15 +100,9 @@ This will create a `build` folder containing the optimized production build.
 
 ## Future Enhancements
 
-- **Visual Representation**: Add connectors between function cards to visualize the flow of data.
-- **Equation Editor**: Provide more advanced functionality for editing equations (e.g., validation on the fly).
+- **Function Addiotion**: We can add an option to add or remove more function and chain them.
 
-## Contributing
 
-Feel free to fork this repository and create a pull request with your contributions! If you find any bugs or have ideas for improvements, please open an issue.
+## 🐛Bug Reporting
 
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Feel free to [open an issue](https://github.com/pranavgoel29/functional-chaining) on GitHub if you find any bug.
