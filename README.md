@@ -76,7 +76,7 @@ git clone https://github.com/pranavgoel29/functional-chaining.git
 cd functional-chaining
 ```
 
-2.  Install Dependencies
+3.  Install Dependencies
 
 ```bash
 pnpm install
@@ -96,15 +96,6 @@ pnpm run dev
 
 This will open the application in your browser.
 
-4.  Build the Project (Optional)
-
-To build the project for production, run:
-
-```bash
-pnpm run build
-```
-
-This will create a `build` folder containing the optimized production build.
 
 <br>
 
