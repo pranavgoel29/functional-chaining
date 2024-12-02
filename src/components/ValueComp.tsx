@@ -21,7 +21,7 @@ export const ValueComponent: React.FC<ValueComponentProps> = ({
         htmlFor={isInput ? "initial-value" : "final-value"}
         className={`block text-sm font-medium text-white mb-1 p-1 text-center rounded-full ${accentBg}`}
       >
-        {isInput ? "Initial value of x" : "Final value of y"}
+        {isInput ? "Initial value of x" : "Final output y"}
       </label>
 
       {/* Input or Display */}
