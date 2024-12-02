@@ -5,6 +5,12 @@ export interface MathFunction {
   nextFunctionId: number | null;
 }
 
+// Validation result interface for equation checking
+export interface ValidationResult {
+  isValid: boolean;
+  error?: string;
+}
+
 // Result of a function calculation
 export interface FunctionResult {
   functionId: number;
