@@ -23,9 +23,9 @@ const FlowPointIndicator = ({
   labelPosition = "right",
 }: FlowPointIndicatorProps) => {
   return (
-    <span className={`flex items-center gap-1 `}>
+    <span className={`flex items-center gap-1`}>
       {labelPosition === "left" && (
-        <span className="mr-2">{label}</span> // Left side label
+        <span>{label}</span> // Left side label
       )}
       <div className="relative w-4 h-4 flex items-center justify-center">
         {/* Outer circle */}
@@ -40,7 +40,7 @@ const FlowPointIndicator = ({
         />
       </div>
       {labelPosition === "right" && (
-        <span className="ml-2">{label}</span> // Right side label
+        <span>{label}</span> // Right side label
       )}
     </span>
   );
