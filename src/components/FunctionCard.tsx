@@ -1,14 +1,14 @@
+import { defaultChainConfig } from "../hooks/useFunction";
 import { MathFunction } from "../types";
 
 type FunctionCardProps = {
   func: MathFunction;
   onEquationChange: (id: number, equation: string) => void;
-  onNextFunctionChange: (id: number, nextFunctionId: number | null) => void;
   result?: { input: number; output: number };
 };
 
 const FunctionCard = (props: FunctionCardProps) => {
-  const { func, onEquationChange, onNextFunctionChange, result } = props;
+  const { func, onEquationChange, result } = props;
   return (
     <div className="bg-white p-6 rounded-lg border border-gray-200 w-72 relative z-10">
       <div className="flex justify-between items-center mb-4">
@@ -24,7 +24,7 @@ const FunctionCard = (props: FunctionCardProps) => {
         <input
           type="text"
           value={func.equation}
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => onEquationChange(func.id, e.target.value)}
           className={`w-full p-2 border rounded-md `}
           placeholder="e.g., 2x + 1"
         />
@@ -37,34 +37,31 @@ const FunctionCard = (props: FunctionCardProps) => {
         </label>
         <select
           title="Select the next function in the chain"
-          value={1}
+          value={func.nextFunctionId ?? ""}
           onChange={(e) =>
-            console.log(
-              //   func.id,
-              e.target.value ? Number(e.target.value) : null
-            )
+            console.log(func.id, e.target.value ? Number(e.target.value) : null)
           }
           disabled={true}
           className={`w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed text-gray-500`}
         >
           <option value="">None</option>
           {
-            <>
-              <option key={1} value={1}>
-                Function: 1
-              </option>
-              <option key={2} value={2}>
-                Function: 2
-              </option>
-            </>
+            // Render all available functions except the current function
+            defaultChainConfig.availableFunctions
+              .filter((id) => id !== func.id)
+              .map((id) => (
+                <option key={id} value={id}>
+                  Function: {id}
+                </option>
+              ))
           }
         </select>
       </div>
 
       <div className="mt-4 pt-4 border-t">
         <div className="flex justify-between text-sm">
-          <span>Input</span>
-          <span>Output</span>
+          <span>Input {result?.input}</span>
+          <span>Output {result?.output}</span>
         </div>
       </div>
     </div>
