@@ -53,7 +53,7 @@ const App: React.FC = () => {
     <div className="min-h-screen relative flex justify-center items-center p-6 g-2">
       <ValueComponent isInput value={inputValue} onChange={handleInputChange} />
 
-      <div className="flex flex-wrap gap-16 justify-center min-w-8/12 w-8/12">
+      <div className="flex flex-wrap gap-16 justify-center min-w-8/12 w-8/12 max-w-5xl">
         {functions.map((func) => (
           <FunctionCard
             key={func.id}
