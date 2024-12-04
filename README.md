@@ -1,4 +1,4 @@
-<img src="https://github.com/user-attachments/assets/180cd63f-0c3d-4d75-9cb7-c279556ee944" alt="logo" width="15%" />
+<img src="https://raw.githubusercontent.com/pranavgoel29/functional-chaining/main/public/chain.png" alt="logo" width="15%" />
 
 # Function Chain Calculator
 
